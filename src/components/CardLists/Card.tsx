@@ -39,17 +39,8 @@ const Card: FC<CardType> = ({ i }) => {
             {add ? <AddIcon /> : <DeleteIcon />}
           </button>
           {showPopup && (
-            <div className="popup р">
-              {add ? (
-                <>
-                  <span className="font-bold">{`\"${name}\"`}</span> Удалено из избранного
-                   
-                </>
-              ) : (
-                <>
-                  <span className="font-bold">{`\"${name}\"`}</span> Добавлено в избранное
-                </>
-              )}
+            <div className="popup">
+              <span className="font-bold">{`\"${name}\"`}</span> {add ? "Удалено из избранного" : "Добавлено в избранное" }
             </div>
           )}
         </div>
