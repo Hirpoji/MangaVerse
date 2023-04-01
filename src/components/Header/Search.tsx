@@ -2,22 +2,24 @@ import { FC } from "react";
 import Button from "../../UI/Button";
 import SearchIcon from "../../icons/SearchIcon";
 
-const Search: FC = () => {
+interface SearchProps{
+  classes: string;
+}
+
+const Search: FC<SearchProps> = ({classes}) => {
   return (
-    <div className="flex gap-x-5">
-      <form className="flex gap-x-5">
+      <form className={`flex gap-x-5 ${classes}`}>
         <input
           type="text"
           id="search"
           name="search"
           placeholder="Найти лучшую мангу"
-          className="bg-neutral-200 rounded-3xl border-none pt-[10px] pr-[290px] pl-[30px] pb-[10px]"
+          className={`bg-neutral-200 rounded-3xl border-none pt-[10px]  pl-[30px] pb-[10px] w-full `}
         />
-        <Button>
+        <Button onclick={()=>0}>
           <SearchIcon />
         </Button>
       </form>
-    </div>
   );
 };
 

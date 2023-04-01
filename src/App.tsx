@@ -1,17 +1,13 @@
 import Header from "./components/Header";
 import MainPage from "./pages/MainPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
-    
     <div className="App">
-      <div className="wrapper">
-        <Header/>
-        <div className="content">
-          <div className="content__container">
-            <MainPage/>
-          </div>
-        </div>
+      <div className="mx-auto max-w-[1300px]">
+        <Header />
+        <MainPage />
       </div>
     </div>
   );

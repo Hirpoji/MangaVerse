@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800");
 
 * {
   padding: 0;
@@ -11,7 +11,25 @@
 }
 
 body {
+  font-family: "Inter" ;
+  overflow-y: scroll;
+  scrollbar-color: #000000 #000000;
+  scrollbar-width: thin; 
   height: 3000px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #fff;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+::selection {
+  background-color: #000; 
+  color: #fff; 
 }
 
 button {
@@ -19,9 +37,6 @@ button {
   border-radius: 45px;
 }
 
-div {
-  font-family: "Roboto";
-}
 
 .wrapper {
   max-width: 1300px;
@@ -30,7 +45,6 @@ div {
 
 .logo {
   &__text {
-    font-family: "Inter" !important;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -70,3 +84,4 @@ div {
     transform: translateX(2rem);
   }
 }
+

@@ -1,10 +1,11 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import Button from "../../UI/Button";
 
 const genereList = ["Все", "Манга", "Манхва", "Манхуа"];
 
 const Genere = () => {
   let [activeGenere, setActiveGenere] = useState(0);
+
 
   return (
     <div>

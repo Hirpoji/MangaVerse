@@ -1,14 +1,22 @@
 import React from "react";
+import { useState } from "react";
 
 interface SelectProps {
   classes?: string;
+  elections: Array<string>;
 }
 
-const Select: React.FC<SelectProps> = ({ classes }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const Select: React.FC<SelectProps> = ({ classes, elections }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [select, setSelected] = useState(elections[0]);
 
   const toggleSelect = () => {
     setIsOpen(!isOpen);
+  };
+
+  const onClickListItem = (election:string) => {
+    setSelected(election);
+    setIsOpen(false);
   };
 
   return (
@@ -17,7 +25,7 @@ const Select: React.FC<SelectProps> = ({ classes }) => {
         onClick={toggleSelect}
         className="bg-white rounded-md p-2 w-full text-left"
       >
-        По оценке
+        {select}
         <svg
           className={`h-5 w-5 absolute top-3 right-3 transition-transform ${
             isOpen ? "transform rotate-180" : ""
@@ -35,18 +43,17 @@ const Select: React.FC<SelectProps> = ({ classes }) => {
       {isOpen && (
         <div className="absolute w-full mt-1 bg-white rounded-md shadow-lg">
           <ul>
-            <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
-              По оценке
-            </li>
-            <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
-              По популярности
-            </li>
-            <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
-              По алфавиту
-            </li>
-            <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
-              Недавно добавлены
-            </li>
+            {elections.map((election) => {
+              return (
+                <li
+                  className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                  key={election}
+                  onClick={() => onClickListItem(election)}
+                >
+                  {election}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

@@ -8,7 +8,7 @@ const Header: FC = () => {
     <div className="mb-20 mt-10">
       <div className="items-center grid grid-cols-12">
         <Logo />
-        <Search />
+        <Search classes={"col-start-4 col-end-9"}/>
         <User />
       </div>
     </div>

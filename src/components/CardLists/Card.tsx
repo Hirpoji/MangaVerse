@@ -4,10 +4,17 @@ import DeleteIcon from "../../icons/DeleteIcon";
 import MarkIcon from "../../icons/MarkIcon";
 
 interface CardType {
-  i: number;
+  manga: {
+    id: number;
+    image: string;
+    name: string;
+    otherName: string;
+    rating: number;
+    type: string;
+  };
 }
 
-const Card: FC<CardType> = ({ i }) => {
+const Card: FC<CardType> = ({ manga }) => {
   const [add, setAdd] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -17,34 +24,41 @@ const Card: FC<CardType> = ({ i }) => {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
-      }, 2000);
+      }, 1800);
     }
   };
-  const name = "Берсерк";
+
   return (
-    <div className="w-full">
-      <img
-        src={`../../../src/assets/images/manga/manga${i + 1}.jpg`}
-        className="w-full object-cover object-center h-[316px] overflow-hidden mb-5"
-      />
+    <div className="flex flex-col gap-y-1 justify-between">
+      <div>
+        <img
+          src={manga.image}
+          className="w-full object-cover object-center h-[316px] overflow-hidden mb-5"
+        />
+        <h3 className="font-bold">{manga.name}</h3>
+        <span className="mb-2">{manga.otherName}</span>
+      </div>
+
       <div className="flex gap-y-1 flex-col ">
-        <h3 className="font-bold">{name}</h3>
-        <span className="mb-2">Берсерк</span>
+        
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
             <MarkIcon />
-            <span className="font-inter font-bold text-base ">5,6</span>
+            <span className="font-inter font-bold text-base ">
+              {manga.rating}
+            </span>
           </div>
           <button className="bg-white" onClick={handleAddClick}>
             {add ? <AddIcon /> : <DeleteIcon />}
           </button>
-          {showPopup && (
-            <div className="popup">
-              <span className="font-bold">{`\"${name}\"`}</span> {add ? "Удалено из избранного" : "Добавлено в избранное" }
-            </div>
-          )}
         </div>
       </div>
+      {showPopup && (
+        <div className="popup">
+          <span className="font-bold">{`\"${manga.name}\"`}</span>{" "}
+          {add ? "Удалено из избранного" : "Добавлено в избранное"}
+        </div>
+      )}
     </div>
   );
 };

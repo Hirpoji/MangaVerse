@@ -2,7 +2,7 @@ import  { FC } from "react";
 
 const User: FC = () => {
   return (
-    <div className="col-start-10 col-end-13">
+    <button className="col-start-10 col-end-13 bg-transparent">
       <div className="flex items-center gap-x-4 justify-end">
         <span className="font-bold text-base">Анатолий</span>
         <img
@@ -11,7 +11,7 @@ const User: FC = () => {
           alt=""
         />
       </div>
-    </div>
+    </button>
   );
 };
 
