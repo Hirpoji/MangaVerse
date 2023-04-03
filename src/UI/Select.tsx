@@ -1,21 +1,26 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface SelectProps {
   classes?: string;
-  elections: Array<string>;
+  elections: Value[];
+  value: Value;
+  onClickType: (name: Value) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ classes, elections }) => {
+interface Value {
+  name: string,
+  sortProperty: string
+}
+
+const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClickType }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [select, setSelected] = useState(elections[0]);
 
   const toggleSelect = () => {
     setIsOpen(!isOpen);
   };
 
-  const onClickListItem = (election:string) => {
-    setSelected(election);
+  const onClickListItem = (election: Value) => {
+    onClickType(election);
     setIsOpen(false);
   };
 
@@ -25,7 +30,7 @@ const Select: React.FC<SelectProps> = ({ classes, elections }) => {
         onClick={toggleSelect}
         className="bg-white rounded-md p-2 w-full text-left"
       >
-        {select}
+        {value.name}
         <svg
           className={`h-5 w-5 absolute top-3 right-3 transition-transform ${
             isOpen ? "transform rotate-180" : ""
@@ -46,11 +51,12 @@ const Select: React.FC<SelectProps> = ({ classes, elections }) => {
             {elections.map((election) => {
               return (
                 <li
+                  key={election.name}
                   className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
-                  key={election}
                   onClick={() => onClickListItem(election)}
                 >
-                  {election}
+                  {election.name}
+                  
                 </li>
               );
             })}

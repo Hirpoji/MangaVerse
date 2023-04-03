@@ -2,19 +2,18 @@ import { FC, useState } from "react";
 import AddIcon from "../../icons/AddIcon";
 import DeleteIcon from "../../icons/DeleteIcon";
 import MarkIcon from "../../icons/MarkIcon";
+import { Link } from "react-router-dom";
 
 interface CardType {
-  manga: {
-    id: number;
-    image: string;
-    name: string;
-    otherName: string;
-    rating: number;
-    type: string;
-  };
+  id: number;
+  image: string;
+  name: string;
+  otherName: string;
+  rating: number;
+  type: string;
 }
 
-const Card: FC<CardType> = ({ manga }) => {
+const Card: FC<CardType> = ({ image, name, otherName, rating}) => {
   const [add, setAdd] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -30,22 +29,23 @@ const Card: FC<CardType> = ({ manga }) => {
 
   return (
     <div className="flex flex-col gap-y-1 justify-between">
-      <div>
-        <img
-          src={manga.image}
-          className="w-full object-cover object-center h-[316px] overflow-hidden mb-5"
-        />
-        <h3 className="font-bold">{manga.name}</h3>
-        <span className="mb-2">{manga.otherName}</span>
-      </div>
+      <Link to="/manga_page">
+        <div>
+          <img
+            src={image}
+            className="w-full object-cover object-center h-[316px] overflow-hidden mb-5"
+          />
+          <h3 className="font-bold">{name}</h3>
+          <span className="mb-2">{otherName}</span>
+        </div>
+      </Link>
 
       <div className="flex gap-y-1 flex-col ">
-        
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
             <MarkIcon />
             <span className="font-inter font-bold text-base ">
-              {manga.rating}
+              {rating}
             </span>
           </div>
           <button className="bg-white" onClick={handleAddClick}>
@@ -55,7 +55,7 @@ const Card: FC<CardType> = ({ manga }) => {
       </div>
       {showPopup && (
         <div className="popup">
-          <span className="font-bold">{`\"${manga.name}\"`}</span>{" "}
+          <span className="font-bold">{`\"${name}\"`}</span>{" "}
           {add ? "Удалено из избранного" : "Добавлено в избранное"}
         </div>
       )}

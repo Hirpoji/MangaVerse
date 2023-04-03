@@ -1,8 +1,13 @@
-import  { FC } from "react";
+import { FC } from "react";
+import { Link } from "react-router-dom";
+
+const smallDisplay = "md:md:hidden";
+const mediumDisplay = "md:md:hidden";
+const largeDisplay = "lg:block";
 
 const User: FC = () => {
   return (
-    <button className="col-start-10 col-end-13 bg-transparent">
+    <Link to="/user" className={`col-start-10 col-end-13 bg-transparent ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}>
       <div className="flex items-center gap-x-4 justify-end">
         <span className="font-bold text-base">Анатолий</span>
         <img
@@ -11,7 +16,7 @@ const User: FC = () => {
           alt=""
         />
       </div>
-    </button>
+    </Link>
   );
 };
 

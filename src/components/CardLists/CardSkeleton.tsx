@@ -9,7 +9,7 @@ const Skeleton: FC  = () => (
     height={436}
     viewBox="0 0 200 436"
     backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
+    foregroundColor="#ecebeb" 
   >
     <rect x="0" y="0" rx="0" ry="0" width="200" height="316" /> 
     <rect x="0" y="365" rx="0" ry="0" width="200" height="20" /> 

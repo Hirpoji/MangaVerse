@@ -2,27 +2,33 @@ import { FC, useState, useEffect } from "react";
 import Card from "./Card";
 import Skeleton from "./CardSkeleton";
 
-const CardList: FC = () => {
-  const [mangaList, setMangaList] = useState([]);
-  const mangaListPath = "https://6428251e46fd35eb7c4c869f.mockapi.io/manga";
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetch(mangaListPath)
-      .then((res) => {
-        return res.json();
-      })
-      .then((arr) => {
-        setMangaList(arr);
-        setIsLoading(false);
-      });
-  });
+interface CardType {
+  id: number;
+  image: string;
+  name: string;
+  otherName: string;
+  rating: number;
+  type: string;
+}
+
+interface CardList {
+  isLoading: boolean
+  mangaList: Array<CardType>;
+}
+
+const CardList: FC = ({isLoading, mangaList}) => {
+  const smallDisplay = "sm:grid-cols-1 sm:col-start-1 sm:col-end-12";
+  const mediumDisplay = "md:grid-cols-3 md:col-end-13";
+  const largeDisplay = "lg:grid-cols-4 lg:col-start-1 lg:col-end-9";
 
   return (
-    <div className="grid col-start-1 col-end-9 grid-cols-4 gap-x-5 gap-y-10 items-stretch">
+    <div
+      className={`grid  gap-x-5 gap-y-10 items-stretch ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
+    >
       {isLoading
         ? [...new Array(12)].map((_, index) => <Skeleton key={index} />)
-        : mangaList.map((manga) => <Card {...{ manga }} key={manga} />)}
+        : mangaList.map((manga: CardType, i: number) => <Card {...manga} key={i} />)}
     </div>
   );
 };

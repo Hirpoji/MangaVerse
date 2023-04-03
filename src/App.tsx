@@ -1,14 +1,18 @@
 import Header from "./components/Header";
-import MainPage from "./pages/MainPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { routes } from "../src/routes"
 
 function App() {
   return (
-    <div className="App">
-      <div className="mx-auto max-w-[1300px]">
+    <div className="App mx-auto max-w-screen-xl mt-12 mb-12 pl-5 pr-5 ">
+      <Router>
         <Header />
-        <MainPage />
-      </div>
+        <Routes>
+          {routes.map(({ path, Component }) => (
+            <Route path={path} element={<Component />} key={path} />
+          ))}
+        </Routes>
+      </Router>
     </div>
   );
 }
