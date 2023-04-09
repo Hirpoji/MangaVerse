@@ -14,7 +14,6 @@ interface Value {
 
 const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClickType }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleSelect = () => {
     setIsOpen(!isOpen);
   };

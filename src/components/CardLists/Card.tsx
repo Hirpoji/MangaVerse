@@ -1,8 +1,6 @@
 import { FC, useState } from "react";
-import AddIcon from "../../icons/AddIcon";
-import DeleteIcon from "../../icons/DeleteIcon";
-import MarkIcon from "../../icons/MarkIcon";
 import { Link } from "react-router-dom";
+import { AiFillStar, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 interface CardType {
   id: number;
@@ -13,7 +11,7 @@ interface CardType {
   type: string;
 }
 
-const Card: FC<CardType> = ({ image, name, otherName, rating}) => {
+const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
   const [add, setAdd] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -43,13 +41,11 @@ const Card: FC<CardType> = ({ image, name, otherName, rating}) => {
       <div className="flex gap-y-1 flex-col ">
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
-            <MarkIcon />
-            <span className="font-inter font-bold text-base ">
-              {rating}
-            </span>
+            <AiFillStar className="w-5 h-5" />
+            <span className="font-inter font-bold text-base ">{rating}</span>
           </div>
           <button className="bg-white" onClick={handleAddClick}>
-            {add ? <AddIcon /> : <DeleteIcon />}
+            {add ? <AiOutlinePlus className="w-5 h-5" /> : <AiOutlineMinus  className="w-5 h-5"/>}
           </button>
         </div>
       </div>

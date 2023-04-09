@@ -1,7 +1,6 @@
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 import Card from "./Card";
-import Skeleton from "./CardSkeleton";
-
+import Spinner from "../../UI/Spinner";
 
 interface CardType {
   id: number;
@@ -13,22 +12,29 @@ interface CardType {
 }
 
 interface CardList {
-  isLoading: boolean
+  isLoading: boolean;
   mangaList: Array<CardType>;
 }
 
-const CardList: FC = ({isLoading, mangaList}) => {
+const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
   const smallDisplay = "sm:grid-cols-1 sm:col-start-1 sm:col-end-12";
-  const mediumDisplay = "md:grid-cols-3 md:col-end-13";
-  const largeDisplay = "lg:grid-cols-4 lg:col-start-1 lg:col-end-9";
+  const mediumDisplay = "md:grid-cols-3 md:col-end-11 md:col-start-1";
+  const largeDisplay = "lg:grid-cols-4 lg:col-start-1 lg:col-end-9 lg:gap-y-10";
 
-  return (
+  const spinner = <Spinner />;
+  const manga = mangaList.map((manga: CardType, i: number) => (
+    <Card {...manga} key={i} />
+  ));
+
+  return isLoading ? (
+    <div className={`col-start-6 col-end-8`}>
+      <Spinner />
+    </div>
+  ) : (
     <div
-      className={`grid  gap-x-5 gap-y-10 items-stretch ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
+      className={`grid gap-x-5 items-stretch ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
     >
-      {isLoading
-        ? [...new Array(12)].map((_, index) => <Skeleton key={index} />)
-        : mangaList.map((manga: CardType, i: number) => <Card {...manga} key={i} />)}
+      {manga}
     </div>
   );
 };

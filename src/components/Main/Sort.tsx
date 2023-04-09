@@ -13,8 +13,10 @@ interface Value {
 
 const Sort: FC<SortProps> = ({ value, onClickType }) => {
   const elections = [
-    { name: "По рейтингу", sortProperty: "rating" },
-    { name: "По алфавиту", sortProperty: "name" },
+    { name: "По рейтингу 10-1", sortProperty: "-rating" },
+    { name: "По рейтингу 1-10", sortProperty: "rating" },
+    { name: "По алфавиту А-Я", sortProperty: "name" },
+    { name: "По алфавиту Я-А", sortProperty: "-name" },
   ];
   return (
     <Select

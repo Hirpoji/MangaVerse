@@ -4,6 +4,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800");
 
+.App{
+  min-height: 100%;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +19,6 @@ body {
   overflow-y: scroll;
   scrollbar-color: #000000 #000000;
   scrollbar-width: thin; 
-  height: 3000px;
 }
 
 ::-webkit-scrollbar {
@@ -37,11 +40,6 @@ button {
   border-radius: 45px;
 }
 
-
-.wrapper {
-  max-width: 1300px;
-  margin: 0 auto;
-}
 
 .logo {
   &__text {
@@ -84,4 +82,3 @@ button {
     transform: translateX(2rem);
   }
 }
-
