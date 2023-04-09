@@ -42,10 +42,14 @@ const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
             <AiFillStar className="w-5 h-5" />
-            <span className="font-inter font-bold text-base ">{rating}</span>
+            <span className=" font-bold text-base ">{rating}</span>
           </div>
           <button className="bg-white" onClick={handleAddClick}>
-            {add ? <AiOutlinePlus className="w-5 h-5" /> : <AiOutlineMinus  className="w-5 h-5"/>}
+            {add ? (
+              <AiOutlinePlus className="w-5 h-5" />
+            ) : (
+              <AiOutlineMinus className="w-5 h-5" />
+            )}
           </button>
         </div>
       </div>

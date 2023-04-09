@@ -13,7 +13,6 @@ const User: FC = () => {
         <img
           className="rounded-3xl border-2 w-10 h-10 border-black"
           src="../../src/assets/images/user.png"
-          alt=""
         />
       </div>
     </Link>

@@ -14,7 +14,7 @@ export const routes: RoutesType[] = [
   {
     name: "main",
     path: "/",
-    Component: MainPage,
+    Component: NotFoundPage,
   },
   {
     name: "not found",

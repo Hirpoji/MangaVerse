@@ -4,8 +4,12 @@ import Search from "./Search";
 import User from "./User";
 import { useState } from "react";
 
-const Header: FC = () => {
-  const [searchValue, setSearchValue] = useState("");
+interface HeaderProps {
+  searchValue: string;
+  setSearchValue : Function;
+}
+
+const Header: FC<HeaderProps> = ({searchValue,  setSearchValue}) => {
   return (
     <div className="mb-20">
       <div className="items-center grid grid-cols-12">

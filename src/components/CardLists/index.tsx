@@ -21,7 +21,6 @@ const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
   const mediumDisplay = "md:grid-cols-3 md:col-end-11 md:col-start-1";
   const largeDisplay = "lg:grid-cols-4 lg:col-start-1 lg:col-end-9 lg:gap-y-10";
 
-  const spinner = <Spinner />;
   const manga = mangaList.map((manga: CardType, i: number) => (
     <Card {...manga} key={i} />
   ));
@@ -32,9 +31,9 @@ const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
     </div>
   ) : (
     <div
-      className={`grid gap-x-5 items-stretch ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
+      className={`grid gap-x-5 items-stretch mb-10 ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
     >
-      {manga}
+      {manga}      
     </div>
   );
 };
