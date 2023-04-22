@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "image":"../../src/assets/images/manga/manga1.jpg",
+    "name": "Клинок, рассекающий демонов",
+    "otherName": "Kimetsu no Yaiba",
+    "rating": 9.1,
+    "type": "manga"
+  },
+  {
+    "id": 1,
+    "image":"../../src/assets/images/manga/manga2.jpg",
+    "name": "Kimetsu no Yaiba",
+    "otherName": "Bungou Stray Dogs",
+    "rating": 8.2,
+    "type": "manga"
+  },
+  {
+    "id": 2,
+    "image":"../../src/assets/images/manga/manga3.jpg",
+    "name": "Ван Пис",
+    "otherName": "One Piece",
+    "rating": 8.53,
+    "type": "manga"
+  },
+  {
+    "id": 3,
+    "image":"../../src/assets/images/manga/manga4.jpg",
+    "name": "Токийские мстители",
+    "otherName": "Tokyo Revengers",
+    "rating": 5.2,
+    "type": "manga"
+  },
+  {
+    "id": 4,
+    "image":"../../src/assets/images/manga/manga5.jpg",
+    "name": "Ванпанчмен",
+    "otherName": "Onepunch-Man",
+    "rating": 10,
+    "type": "manga"
+  },
+  {
+    "id": 5,
+    "image":"../../src/assets/images/manga/manga6.jpg",
+    "name": "Ветролом",
+    "otherName": "Wind Breaker",
+    "rating": 3.21,
+    "type": "manhwa"
+  },
+  {
+    "id": 6,
+    "image":"../../src/assets/images/manga/manga7.jpg",
+    "name": "Однажды я стала принцессой",
+    "otherName": "Who Made me a Princess",
+    "rating": 6.52,
+    "type": "manhwa"
+  },
+  {
+    "id": 7,
+    "image":"../../src/assets/images/manga/manga8.jpg",
+    "name": "Всеведущий читатель",
+    "otherName": "Cheating Men Must Die",
+    "rating": 4.2,
+    "type": "manhwa"
+  },
+  {
+    "id": 8,
+    "image":"../../src/assets/images/manga/manga9.jpg",
+    "name": "Единственный исход злодейки — смерть",
+    "otherName": "Единственный исход злодейки — смерть",
+    "rating": 5.2,
+    "type": "manhwa"
+  },
+  {
+    "id": 9,
+    "image":"../../src/assets/images/manga/manga10.jpg",
+    "name": "Невеста герцога по контракту",
+    "otherName": "The Reason Why Raeliana Ended up at the Duke's Mansion",
+    "rating": 9.31,
+    "type": "manhwa"
+  },
+  {
+    "id": 10,
+    "image":"../../src/assets/images/manga/manga11.jpg",
+    "name":"Нань Хао и Шан Фэнь",
+    "otherName":"Nan Hao and Shang Feng",
+    "rating":9.91,
+    "type":"manhua"
+    },
+    {
+    "id": 11,
+    "image":"../../src/assets/images/manga/manga13.jpg",
+    "name":"Сказания о Демонах и Богах",
+    "otherName":"Tales of Demons and Gods",
+    "rating":9.67,
+    "type":"manhua"
+    },
+    {
+    "id": 12,
+    "image":"../../src/assets/images/manga/manga12.jpg",
+    "name":"Изменщик должен умереть",
+    "otherName":"Cheating Men Must Die",
+    "rating":9.53,
+    "type":"manhua"
+    },
+    {
+    "id": 13,
+    "image":"../../src/assets/images/manga/manga15.jpg",
+    "name":"Волк и найдёныш",
+    "otherName":"Wolf and dog",
+    "rating":9.90,
+    "type":"manhua"
+    },
+    {
+    "id": 14,
+    "image":"../../src/assets/images/manga/manga14.jpg",
+    "name":"Секрет Айеши",
+    "otherName":"Aisha de senlin",
+    "rating":7.0,
+    "type":"manhua"
+    }
+]
