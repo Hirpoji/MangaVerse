@@ -8,6 +8,7 @@ interface SearchProps {
 
 const Search: FC<SearchProps> = ({ classes }) => {
   const { searchValue, setSearchValue } = useContext(SearchContext);
+
   return (
     <div className={`flex gap-x-5 relative ${classes}`}>
       <input

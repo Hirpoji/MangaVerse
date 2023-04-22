@@ -1,17 +1,17 @@
 import Select from "../../UI/Select";
 import { FC } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { setSort } from "../../redux/slices/filterSlice";
+import { RootState } from "../../redux/store";
 
-interface SortProps {
-  value: Value;
-  onClickType: (value: Value) => void;
-}
+const Sort: FC= () => {
+  const sort = useSelector((state: RootState) => state.filter.sort);
+  const dispatch = useDispatch();
 
-interface Value {
-  name: string;
-  sortProperty: string;
-}
+  const onClickSetSort = (value : object) =>{
+    dispatch(setSort(value));
+  }
 
-const Sort: FC<SortProps> = ({ value, onClickType }) => {
   const elections = [
     { name: "По рейтингу 10-1", sortProperty: "-rating" },
     { name: "По рейтингу 1-10", sortProperty: "rating" },
@@ -20,10 +20,9 @@ const Sort: FC<SortProps> = ({ value, onClickType }) => {
   ];
   return (
     <Select
-      classes={"col-start-11 col-end-13"}
       elections={elections}
-      value={value}
-      onClickType={onClickType}
+      value={sort}
+      onClickType={onClickSetSort}
     />
   );
 };

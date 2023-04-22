@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes } from "../src/routes";
 import Footer from "./components/Footer";
 import { createContext, useState } from "react";
-import MainPage from "./pages/MainPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import UserPage from "./pages/UserPage";
-import MangaPage from "./pages/MangaPage";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../src/redux/store";
 
 interface ISearchContext {
   searchValue: string;
@@ -18,6 +16,8 @@ export const SearchContext = createContext<ISearchContext>({
   setSearchValue: () => {},
 });
 
+
+
 function App() {
   const [searchValue, setSearchValue] = useState("");
   return (
@@ -28,8 +28,8 @@ function App() {
             <Header />
             <div className="flex-grow mb-20">
               <Routes>
-                {routes.map(({path, Component}) => (
-                  <Route path={path} element={<Component/>} key={path} />
+                {routes.map(({ path, Component }) => (
+                  <Route path={path} element={<Component />} key={path} />
                 ))}
               </Routes>
             </div>

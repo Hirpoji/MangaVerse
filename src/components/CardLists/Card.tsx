@@ -8,7 +8,6 @@ interface CardType {
   name: string;
   otherName: string;
   rating: number;
-  type: string;
 }
 
 const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
