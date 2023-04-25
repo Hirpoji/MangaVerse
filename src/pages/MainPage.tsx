@@ -1,14 +1,13 @@
-import SwitchButtons from "../UI/SwitchButtons";
 import CardList from "../components/CardLists";
 import Sort from "../components/Main/Sort";
 import { useState, useEffect, FC, useContext } from "react";
 import { SearchContext } from "../App";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
-import { setCategoryName } from "../redux/slices/filterSlice";
 import axios from "axios";
 import Category from "../components/Main/Category";
 import SelectGenre from "../components/Main/SelectGenre";
+import ScrollButton from "../UI/ScrollButton";
 
 const MainPage: FC = () => {
   const { categoryName, sort } = useSelector(
@@ -43,9 +42,12 @@ const MainPage: FC = () => {
         <Category />
         <CardList isLoading={isLoading} mangaList={mangaList} />
       </div>
-      <div className="flex flex-col col-end-13 col-start-10 gap-y-10">
+      <div className=" flex flex-col  col-start-10 col-end-13 gap-y-10">
         <Sort />
         <SelectGenre />
+      </div>
+      <div className="h-full w-full flex justify-end col-start-10 col-end-13 relative">
+      <ScrollButton/>
       </div>
     </div>
   );

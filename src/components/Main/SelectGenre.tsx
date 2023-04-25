@@ -1,21 +1,58 @@
 import { FC, useState } from "react";
+import { BiSquareRounded } from "react-icons/bi";
+import { TbSquareRoundedFilled } from "react-icons/tb";
 
 const SelectGenre: FC = () => {
-  const [selectedItem, setSelectedItem] = useState("");
+  const menuItems = [
+    { id: 1, label: "Сенен" },
+    { id: 2, label: "Романтика" },
+    { id: 3, label: "Комедия" },
+    { id: 4, label: "Фэнтези" },
+    { id: 1, label: "Сенен" },
+    { id: 2, label: "Романтика" },
+    { id: 3, label: "Комедия" },
+    { id: 4, label: "Фэнтези" },
+    { id: 1, label: "Сенен" },
+    { id: 2, label: "Романтика" },
+    { id: 3, label: "Комедия" },
+    { id: 4, label: "Фэнтези" },
+    { id: 1, label: "Сенен" },
+    { id: 2, label: "Романтика" },
+    { id: 3, label: "Комедия" },
+    { id: 4, label: "Фэнтези" },
+    { id: 1, label: "Сенен" },
+    { id: 2, label: "Романтика" },
+    { id: 3, label: "Комедия" },
+    { id: 4, label: "Фэнтези" },
+  ];
 
-  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedItem(event.target.value);
-  }
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+
+  const handleItemClick = (itemId: number) => {
+    if (selectedItems.includes(itemId)) {
+      setSelectedItems(selectedItems.filter((id) => id !== itemId));
+    } else {
+      setSelectedItems([...selectedItems, itemId]);
+    }
+  };
 
   return (
-    <div className="border p-5 overflow-y-scroll h-64">
-      <select value={selectedItem} onChange={handleChange}>
-        <option value="">Выберите пункт</option>
-        <option value="item1">Пункт 1</option>
-        <option value="item2">Пункт 2</option>
-        <option value="item3">Пункт 3</option>
-      </select>
-      <p>Выбранный пункт: {selectedItem}</p>
+    <div className="border overflow-y-scroll h-64 flex flex-col p-3">
+      {menuItems.map((item) => (
+        <button
+          key={item.id}
+          className={`pb-1 pt-1 flex bg-white items-center gap-x-2  pl-2 hover:bg-gray-200`}
+          onClick={() => handleItemClick(item.id)}
+        >
+          {selectedItems.includes(item.id) ? (
+            <BiSquareRounded />
+          ) : (
+            <TbSquareRoundedFilled />
+          )}
+
+          {item.label}
+        </button>
+      ))}
     </div>
   );
 };

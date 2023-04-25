@@ -26,18 +26,19 @@ const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
 
   return (
     <div className="flex flex-col gap-y-1 justify-between">
-      <Link to="/manga_page">
-        <div>
-          <img
-            src={image}
-            className="w-full object-cover object-center h-[316px] overflow-hidden mb-5"
-          />
-          <h3 className="font-bold">{name}</h3>
-          <span className="mb-2">{otherName}</span>
-        </div>
+      <Link
+        to="/manga_page"
+        className="opacity-100 hover:opacity-90 hover:text-red-600 gap-y-2 flex flex-col"
+      >
+        <img
+          src={image}
+          className="w-full object-cover object-center h-[316px] overflow-hidden mb-1"
+        />
+        <h3 className="font-bold">{name}</h3>
+        <span className="mb-2">{otherName}</span>
       </Link>
 
-      <div className="flex gap-y-1 flex-col ">
+      <div className="flex  flex-col ">
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
             <AiFillStar className="w-5 h-5" />

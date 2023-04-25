@@ -24,7 +24,7 @@ const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClick
   };
 
   return (
-    <div className={`relative ${classes}`}>
+    <div className={`relative ${classes} `}>
       <button
         onClick={toggleSelect}
         className="bg-white rounded-md p-2 w-full text-left"

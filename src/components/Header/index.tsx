@@ -2,8 +2,6 @@ import { FC, useContext } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import User from "./User";
-import { useState } from "react";
-import { SearchContext } from "../../App";
 
 const Header: FC = () => {
   return (
