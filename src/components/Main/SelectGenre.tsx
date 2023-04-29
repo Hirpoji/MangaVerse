@@ -8,22 +8,6 @@ const SelectGenre: FC = () => {
     { id: 2, label: "Романтика" },
     { id: 3, label: "Комедия" },
     { id: 4, label: "Фэнтези" },
-    { id: 1, label: "Сенен" },
-    { id: 2, label: "Романтика" },
-    { id: 3, label: "Комедия" },
-    { id: 4, label: "Фэнтези" },
-    { id: 1, label: "Сенен" },
-    { id: 2, label: "Романтика" },
-    { id: 3, label: "Комедия" },
-    { id: 4, label: "Фэнтези" },
-    { id: 1, label: "Сенен" },
-    { id: 2, label: "Романтика" },
-    { id: 3, label: "Комедия" },
-    { id: 4, label: "Фэнтези" },
-    { id: 1, label: "Сенен" },
-    { id: 2, label: "Романтика" },
-    { id: 3, label: "Комедия" },
-    { id: 4, label: "Фэнтези" },
   ];
 
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
@@ -37,7 +21,7 @@ const SelectGenre: FC = () => {
   };
 
   return (
-    <div className="border overflow-y-scroll h-64 flex flex-col p-3">
+    <div className="border overflow-y-scroll h-64 flex flex-col p-3 gap-y-2">
       {menuItems.map((item) => (
         <button
           key={item.id}
@@ -45,9 +29,9 @@ const SelectGenre: FC = () => {
           onClick={() => handleItemClick(item.id)}
         >
           {selectedItems.includes(item.id) ? (
-            <BiSquareRounded />
-          ) : (
             <TbSquareRoundedFilled />
+          ) : (
+            <BiSquareRounded />
           )}
 
           {item.label}

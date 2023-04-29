@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillStar, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 interface CardType {
   id: number;
@@ -13,6 +15,8 @@ interface CardType {
 const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
   const [add, setAdd] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
+
+  const scroll = useSelector((state: RootState) => state.scroll.isVisible);
 
   const handleAddClick = () => {
     if (!showPopup) {
@@ -41,7 +45,7 @@ const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
       <div className="flex  flex-col ">
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
-            <AiFillStar className="w-5 h-5" />
+            <AiFillStar className="w-5 h-5 text-yellow-500" />
             <span className=" font-bold text-base ">{rating}</span>
           </div>
           <button className="bg-white" onClick={handleAddClick}>
@@ -54,7 +58,7 @@ const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
         </div>
       </div>
       {showPopup && (
-        <div className="popup">
+        <div className={`popup ${scroll ? "bottom-[70px]" : "bottom-0"}`}>
           <span className="font-bold">{`\"${name}\"`}</span>{" "}
           {add ? "Удалено из избранного" : "Добавлено в избранное"}
         </div>

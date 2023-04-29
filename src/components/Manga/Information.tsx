@@ -3,6 +3,7 @@ import Title from "./Title";
 import SwitchButtons from "../../UI/SwitchButtons";
 import Description from "./Description";
 import Genre from "./Genre";
+import Related from "./Related";
 
 const Information: FC = () => {
   const [typeName, SetTypeName] = useState("Информация");
@@ -17,6 +18,7 @@ const Information: FC = () => {
       />
       <Description/>
       <Genre/>
+      <Related/>
     </div>
   );
 };

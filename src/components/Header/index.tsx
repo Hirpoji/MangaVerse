@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import User from "./User";

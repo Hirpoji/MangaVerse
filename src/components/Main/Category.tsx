@@ -4,6 +4,8 @@ import { setCategoryName } from "../../redux/slices/filterSlice";
 import { RootState } from "../../redux/store";
 import SwitchButtons from "../../UI/SwitchButtons";
 
+export const categoryList = ["Все", "Манга", "Манхва", "Маньхуа"];
+
 const Category: FC = () => {
   const { categoryName } = useSelector((state: RootState) => state.filter);
   const dispatch = useDispatch();
@@ -12,11 +14,9 @@ const Category: FC = () => {
     dispatch(setCategoryName(name));
   };
 
-  const buttonsList = ["Все", "Манга", "Манхва", "Маньхуа"];
-
   return (
     <SwitchButtons
-      buttonsList={buttonsList}
+      buttonsList={categoryList}
       value={categoryName}
       onClickType={(name: string) => onClickSetCategoryName(name)}
       classes="col-start-1 col-end-13"

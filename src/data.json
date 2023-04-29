@@ -5,7 +5,7 @@
     "name": "Клинок, рассекающий демонов",
     "otherName": "Kimetsu no Yaiba",
     "rating": 9.1,
-    "type": "manga"
+    "type": "манга"
   },
   {
     "id": 1,
@@ -13,7 +13,7 @@
     "name": "Kimetsu no Yaiba",
     "otherName": "Bungou Stray Dogs",
     "rating": 8.2,
-    "type": "manga"
+    "type": "манга"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "name": "Ван Пис",
     "otherName": "One Piece",
     "rating": 8.53,
-    "type": "manga"
+    "type": "манга"
   },
   {
     "id": 3,
@@ -29,7 +29,7 @@
     "name": "Токийские мстители",
     "otherName": "Tokyo Revengers",
     "rating": 5.2,
-    "type": "manga"
+    "type": "манга"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "name": "Ванпанчмен",
     "otherName": "Onepunch-Man",
     "rating": 10,
-    "type": "manga"
+    "type": "манга"
   },
   {
     "id": 5,
@@ -45,7 +45,7 @@
     "name": "Ветролом",
     "otherName": "Wind Breaker",
     "rating": 3.21,
-    "type": "manhwa"
+    "type": "манхва"
   },
   {
     "id": 6,
@@ -53,7 +53,7 @@
     "name": "Однажды я стала принцессой",
     "otherName": "Who Made me a Princess",
     "rating": 6.52,
-    "type": "manhwa"
+    "type": "манхва"
   },
   {
     "id": 7,
@@ -61,7 +61,7 @@
     "name": "Всеведущий читатель",
     "otherName": "Cheating Men Must Die",
     "rating": 4.2,
-    "type": "manhwa"
+    "type": "манхва"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "name": "Единственный исход злодейки — смерть",
     "otherName": "Единственный исход злодейки — смерть",
     "rating": 5.2,
-    "type": "manhwa"
+    "type": "манхва"
   },
   {
     "id": 9,
@@ -77,7 +77,7 @@
     "name": "Невеста герцога по контракту",
     "otherName": "The Reason Why Raeliana Ended up at the Duke's Mansion",
     "rating": 9.31,
-    "type": "manhwa"
+    "type": "манхва"
   },
   {
     "id": 10,
@@ -85,7 +85,7 @@
     "name":"Нань Хао и Шан Фэнь",
     "otherName":"Nan Hao and Shang Feng",
     "rating":9.91,
-    "type":"manhua"
+    "type":"маньхуа"
     },
     {
     "id": 11,
@@ -93,7 +93,7 @@
     "name":"Сказания о Демонах и Богах",
     "otherName":"Tales of Demons and Gods",
     "rating":9.67,
-    "type":"manhua"
+    "type":"маньхуа"
     },
     {
     "id": 12,
@@ -101,7 +101,7 @@
     "name":"Изменщик должен умереть",
     "otherName":"Cheating Men Must Die",
     "rating":9.53,
-    "type":"manhua"
+    "type":"маньхуа"
     },
     {
     "id": 13,
@@ -109,7 +109,7 @@
     "name":"Волк и найдёныш",
     "otherName":"Wolf and dog",
     "rating":9.90,
-    "type":"manhua"
+    "type":"маньхуа"
     },
     {
     "id": 14,
@@ -117,6 +117,6 @@
     "name":"Секрет Айеши",
     "otherName":"Aisha de senlin",
     "rating":7.0,
-    "type":"manhua"
+    "type":"маньхуа"
     }
 ]

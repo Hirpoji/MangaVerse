@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsVisible } from "../redux/slices/scrollSlice";
+import { RootState } from "../redux/store";
 
 const ScrollButton: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = useSelector((state: RootState) => state.scroll.isVisible);
+  const dispatch = useDispatch();
 
   const handleScroll = () => {
     if (window.pageYOffset > 300) {
-      setIsVisible(true);
+        dispatch(setIsVisible(true))
     } else {
-      setIsVisible(false);
+        dispatch(setIsVisible(false))
     }
   };
 
@@ -30,7 +34,7 @@ const ScrollButton: React.FC = () => {
 
   return (
     <Button
-      classes={`fixed bottom-24 text-white ${
+      classes={`fixed bottom-11 text-white ${
         isVisible ? "visible" : "invisible"
       }`}
       onclick={scrollToTop}

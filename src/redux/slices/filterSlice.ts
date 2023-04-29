@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface CounterState {
+export interface FilterState {
   categoryName: string;
   sort: {
     name: string;
@@ -9,7 +8,7 @@ export interface CounterState {
   };
 }
 
-const initialState: CounterState = {
+const initialState: FilterState = {
   categoryName: "Все",
   sort: {
     name: "По рейтингу 10-1",
@@ -27,9 +26,22 @@ export const filterSlice = createSlice({
     setSort(state, action) {
       state.sort = action.payload;
     },
+    setFilter(state, action) {
+      if (Object.keys(action.payload).length) {
+      state.categoryName = action.payload.categoryName;
+      state.sort = action.payload.sort;
+      }
+      else{
+        state.categoryName= "Все",
+        state.sort = {
+          name: "По рейтингу 10-1",
+          sortProperty: "-rating",
+        }
+      }
+    },
   },
 });
 
-export const { setCategoryName, setSort } = filterSlice.actions;
+export const { setCategoryName, setSort, setFilter } = filterSlice.actions;
 
 export default filterSlice.reducer;

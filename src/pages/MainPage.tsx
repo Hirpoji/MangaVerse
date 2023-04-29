@@ -1,40 +1,88 @@
-import CardList from "../components/CardLists";
-import Sort from "../components/Main/Sort";
-import { useState, useEffect, FC, useContext } from "react";
-import { SearchContext } from "../App";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
+import qs from "qs";
 import axios from "axios";
-import Category from "../components/Main/Category";
+import { useState, useEffect, FC, useRef } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import CardList from "../components/CardLists";
+import Sort, { elections } from "../components/Main/Sort";
+import Category, { categoryList } from "../components/Main/Category";
 import SelectGenre from "../components/Main/SelectGenre";
 import ScrollButton from "../UI/ScrollButton";
+import { useNavigate, useLocation } from "react-router-dom";
+import { setFilter } from "../redux/slices/filterSlice";
+import { useDispatch } from "react-redux";
 
 const MainPage: FC = () => {
+  const navigate = useNavigate();
   const { categoryName, sort } = useSelector(
     (state: RootState) => state.filter
   );
 
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
+  const isRendring = useRef(0);
+
+  const { searchValue } = useSelector((state: RootState) => state.search);
 
   const [isLoading, setIsLoading] = useState(true);
   const [mangaList, setMangaList] = useState([]);
 
-  const order = `order=${sort.sortProperty.includes("-") ? "desc" : "asc"}`;
+  const dispatch = useDispatch();
+  const location = useLocation();
 
-  const type = categoryName !== "Все" ? `type=${categoryName}&` : "";
-  const sortBy = `sortBy=${sort.sortProperty.replace("-", "")}`;
+  const fetchManga = () => {
+    const order = `order=${sort.sortProperty.includes("-") ? "desc" : "asc"}`;
 
-  const search = searchValue ? `search=${searchValue}&` : "";
+    const type = categoryName !== "Все" ? `type=${categoryName}&` : "";
+    const sortBy = `sortBy=${sort.sortProperty.replace("-", "")}`;
 
-  const mangaListPath = `https://6428251e46fd35eb7c4c869f.mockapi.io/manga?${type}${search}${sortBy}&${order}`;
+    const search = searchValue ? `search=${searchValue}&` : "";
 
-  useEffect(() => {
+    const mangaListPath = `https://6428251e46fd35eb7c4c869f.mockapi.io/manga?${type}${search}${sortBy}&${order}`;
     setIsLoading(true);
     axios.get(mangaListPath).then((res) => {
       setMangaList(res.data);
       setIsLoading(false);
     });
-  }, [categoryName, sort, searchValue]);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (isSearch.current) {
+      fetchManga();
+    }
+    isSearch.current = true;
+  }, [categoryName, sort, searchValue, location.search]);
+
+  useEffect(() => {
+    isRendring.current += 1;
+
+    if (isRendring.current > 2) {
+      isMounted.current = true;
+    }
+
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sort.sortProperty,
+        categoryName: categoryName,
+      });
+      navigate(`?${queryString}`, { replace: true });
+    }
+  }, [categoryName, sort, navigate]);
+
+  useEffect(() => {
+    if (location.search) {
+      const params = qs.parse(location.search.substring(1));
+      const sort = elections.find(
+        (obj) => obj.sortProperty === params.sortProperty
+      );
+      const category = categoryList.find(
+        (category) => category === params.categoryName
+      );
+      dispatch(setFilter({ categoryName: category, sort }));
+    }
+    isSearch.current = true;
+  }, []);
 
   return (
     <div className="grid gap-y-10 grid-cols-12 mb-20 gap-x-5 ">
@@ -47,7 +95,7 @@ const MainPage: FC = () => {
         <SelectGenre />
       </div>
       <div className="h-full w-full flex justify-end col-start-10 col-end-13 relative">
-      <ScrollButton/>
+        <ScrollButton />
       </div>
     </div>
   );
