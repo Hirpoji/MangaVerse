@@ -22,7 +22,8 @@
     "react-router-dom": "^6.10.0",
     "react-scrollbars-custom": "^4.1.1",
     "react-select": "^5.7.2",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "tailwind": "^4.0.0"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.7",

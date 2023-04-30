@@ -5,8 +5,9 @@ import { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import  {setSearchValue} from "../../redux/slices/searchSlice";
 
+
 interface SearchProps {
-  classes: string;
+  classes: string;s
 }
 
 const Search: FC<SearchProps> = ({ classes }) => {
@@ -51,6 +52,7 @@ const Search: FC<SearchProps> = ({ classes }) => {
           onClick={onClickClear}
         />
       )}
+      
     </div>
   );
 };

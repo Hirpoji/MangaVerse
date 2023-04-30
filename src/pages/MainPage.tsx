@@ -57,9 +57,7 @@ const MainPage: FC = () => {
   useEffect(() => {
     isRendring.current += 1;
 
-    if (isRendring.current > 2) {
-      isMounted.current = true;
-    }
+    if (isRendring.current > 2) isMounted.current = true;
 
     if (isMounted.current) {
       const queryString = qs.stringify({
@@ -76,10 +74,10 @@ const MainPage: FC = () => {
       const sort = elections.find(
         (obj) => obj.sortProperty === params.sortProperty
       );
-      const category = categoryList.find(
-        (category) => category === params.categoryName
+      const categoryName = categoryList.find(
+        (item) => item === params.categoryName
       );
-      dispatch(setFilter({ categoryName: category, sort }));
+      dispatch(setFilter({ categoryName, sort }));
     }
     isSearch.current = true;
   }, []);

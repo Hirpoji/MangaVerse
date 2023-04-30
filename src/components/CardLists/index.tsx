@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import Card from "./Card";
 import Spinner from "../../UI/Spinner";
 
@@ -16,6 +16,8 @@ interface CardList {
   mangaList: Array<CardType>;
 }
 
+
+
 const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
   const smallDisplay = "sm:grid-cols-1 sm:col-start-1 sm:col-end-12";
   const mediumDisplay = "md:grid-cols-3 md:col-end-11 md:col-start-1";
@@ -25,6 +27,8 @@ const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
     <Card {...manga} key={i} />
   ));
 
+ 
+
   return isLoading ? (
     <div className={`col-start-6 col-end-8`}>
       <Spinner />
@@ -33,7 +37,7 @@ const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
     <div
       className={`grid gap-x-5 items-stretch mb-10 gap-y-10 ${smallDisplay} ${mediumDisplay} ${largeDisplay}`}
     >
-      {manga}      
+      {manga}
     </div>
   );
 };

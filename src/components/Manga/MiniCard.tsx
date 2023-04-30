@@ -12,12 +12,9 @@ const Related: FC = () => {
 
   return (
     <div className="flex col-start-1 col-end-6 flex-col gap-y-8">
-      {mangaList.map(({id, image, name, otherName, rating}) => (
-        <div
-          className="border border-black rounded-3xl pl-4 pr-4 pt-1 pb-1"
-          key={id}
-        >
-          
+      {mangaList.map(({ id, image, name, otherName, rating }) => (
+        <div>
+            
         </div>
       ))}
     </div>
