@@ -5,6 +5,7 @@ interface SelectProps {
   elections: Value[];
   value: Value;
   onClickType: (name: Value) => void;
+  ref: React.RefObject<HTMLInputElement>;
 }
 
 interface Value {
@@ -12,7 +13,7 @@ interface Value {
   sortProperty: string
 }
 
-const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClickType }) => {
+const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClickType, ref }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSelect = () => {
     setIsOpen(!isOpen);
@@ -24,7 +25,7 @@ const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClick
   };
 
   return (
-    <div className={`relative ${classes} `}>
+    <div ref={ref} className={`relative ${classes} `}>
       <button
         onClick={toggleSelect}
         className="bg-white rounded-md p-2 w-full text-left"

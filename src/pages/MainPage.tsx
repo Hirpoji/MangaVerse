@@ -4,7 +4,7 @@ import { useState, useEffect, FC, useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import CardList from "../components/CardLists";
-import Sort, { elections } from "../components/Main/Sort";
+import Sort, { sortList } from "../components/Main/Sort";
 import Category, { categoryList } from "../components/Main/Category";
 import SelectGenre from "../components/Main/SelectGenre";
 import ScrollButton from "../UI/ScrollButton";
@@ -22,8 +22,6 @@ const MainPage: FC = () => {
   const isMounted = useRef(false);
   const isRendring = useRef(0);
 
-  const { searchValue } = useSelector((state: RootState) => state.search);
-
   const [isLoading, setIsLoading] = useState(true);
   const [mangaList, setMangaList] = useState([]);
 
@@ -36,9 +34,7 @@ const MainPage: FC = () => {
     const type = categoryName !== "Все" ? `type=${categoryName}&` : "";
     const sortBy = `sortBy=${sort.sortProperty.replace("-", "")}`;
 
-    const search = searchValue ? `search=${searchValue}&` : "";
-
-    const mangaListPath = `https://6428251e46fd35eb7c4c869f.mockapi.io/manga?${type}${search}${sortBy}&${order}`;
+    const mangaListPath = `https://6428251e46fd35eb7c4c869f.mockapi.io/manga?${type}${sortBy}&${order}`;
     setIsLoading(true);
     axios.get(mangaListPath).then((res) => {
       setMangaList(res.data);
@@ -52,7 +48,7 @@ const MainPage: FC = () => {
       fetchManga();
     }
     isSearch.current = true;
-  }, [categoryName, sort, searchValue, location.search]);
+  }, [categoryName, sort, location.search]);
 
   useEffect(() => {
     isRendring.current += 1;
@@ -71,7 +67,7 @@ const MainPage: FC = () => {
   useEffect(() => {
     if (location.search) {
       const params = qs.parse(location.search.substring(1));
-      const sort = elections.find(
+      const sort = sortList.find(
         (obj) => obj.sortProperty === params.sortProperty
       );
       const categoryName = categoryList.find(

@@ -16,8 +16,6 @@ interface CardList {
   mangaList: Array<CardType>;
 }
 
-
-
 const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
   const smallDisplay = "sm:grid-cols-1 sm:col-start-1 sm:col-end-12";
   const mediumDisplay = "md:grid-cols-3 md:col-end-11 md:col-start-1";
@@ -26,8 +24,6 @@ const CardList: FC<CardList> = ({ isLoading, mangaList }) => {
   const manga = mangaList.map((manga: CardType, i: number) => (
     <Card {...manga} key={i} />
   ));
-
- 
 
   return isLoading ? (
     <div className={`col-start-6 col-end-8`}>

@@ -1,10 +1,10 @@
 import Select from "../../UI/Select";
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../redux/slices/filterSlice";
 import { RootState } from "../../redux/store";
 
-export const elections = [
+export const sortList = [
   { name: "По рейтингу 10-1", sortProperty: "-rating" },
   { name: "По рейтингу 1-10", sortProperty: "rating" },
   { name: "По алфавиту А-Я", sortProperty: "name" },
@@ -12,15 +12,17 @@ export const elections = [
 ];
 
 const Sort: FC = () => {
+  const sortRef = useRef<HTMLInputElement | null>(null);
   const sort = useSelector((state: RootState) => state.filter.sort);
   const dispatch = useDispatch();
+  console.log(sort);
 
   const onClickSetSort = (value: object) => {
     dispatch(setSort(value));
   };
 
   return (
-    <Select elections={elections} value={sort} onClickType={onClickSetSort} />
+    <Select elections={sortList} value={sort} onClickType={onClickSetSort} ref={sortRef} />
   );
 };
 
