@@ -1,10 +1,10 @@
 import { FC, useState } from "react";
 import MiniCardsList from "./MiniCardsList";
 
-const Related: FC = () => {
+const Similar: FC = () => {
   return (
-    <div className="flex col-start-1 col-end-6 flex-col gap-y-8">
-      <h3 className="font-bold text-2xl">Связанное</h3>
+    <div className="flex col-start-6 col-end-11 flex-col gap-y-8">
+      <h3 className="font-bold text-2xl">Похожие</h3>
       <div className="flex gap-x-5 flex-wrap gap-y-4">
         <MiniCardsList />
       </div>
@@ -12,4 +12,4 @@ const Related: FC = () => {
   );
 };
 
-export default Related;
+export default Similar;

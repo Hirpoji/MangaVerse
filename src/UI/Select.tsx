@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface SelectProps {
   classes?: string;
   elections: Value[];
   value: Value;
   onClickType: (name: Value) => void;
-  ref: React.RefObject<HTMLInputElement>;
 }
 
 interface Value {
-  name: string,
-  sortProperty: string
+  name: string;
+  sortProperty: string;
 }
 
-const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClickType, ref }) => {
+const Select: React.FC<SelectProps> = ({
+  classes = "",
+  elections,
+  value,
+  onClickType,
+}) => {
+  const ref = useRef<HTMLInputElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const toggleSelect = () => {
     setIsOpen(!isOpen);
@@ -23,6 +28,20 @@ const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClick
     onClickType(election);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [ref]);
 
   return (
     <div ref={ref} className={`relative ${classes} `}>
@@ -56,7 +75,6 @@ const Select: React.FC<SelectProps> = ({ classes = "", elections, value, onClick
                   onClick={() => onClickListItem(election)}
                 >
                   {election.name}
-                  
                 </li>
               );
             })}

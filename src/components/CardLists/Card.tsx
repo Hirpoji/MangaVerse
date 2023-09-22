@@ -36,13 +36,13 @@ const Card: FC<CardType> = ({ image, name, otherName, rating }) => {
       >
         <img
           src={image}
-          className="w-full object-cover object-center h-[316px] overflow-hidden mb-1"
+          className="w-full object-cover object-center h-[316px] overflow-hidden mb-1 rounded-xl"
         />
         <h3 className="font-bold">{name}</h3>
         <span className="mb-2">{otherName}</span>
       </Link>
 
-      <div className="flex  flex-col ">
+      <div className="flex flex-col">
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 items-center">
             <AiFillStar className="w-5 h-5 text-yellow-500" />

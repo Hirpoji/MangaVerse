@@ -27,6 +27,7 @@ const Search: FC<SearchProps> = ({ classes }) => {
   const [mangaList, setMangaList] = useState<MangaList[]>([]);
   const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const ref = useRef<HTMLInputElement | null>(null);
 
   const fetchManga = () => {
     const mangaListPath = `https://6428251e46fd35eb7c4c869f.mockapi.io/manga?${search}`;
@@ -34,6 +35,24 @@ const Search: FC<SearchProps> = ({ classes }) => {
       setMangaList(res.data);
     });
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target as Node)
+      ) {
+        setValue("");
+        dispatch(setSearchValue(""));
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [inputRef]);
 
   useEffect(() => {
     fetchManga();
@@ -62,7 +81,7 @@ const Search: FC<SearchProps> = ({ classes }) => {
   };
 
   return (
-    <div className={`flex gap-x-5 relative ${classes}`}>
+    <div className={`flex gap-x-5 relative ${classes}`} ref={ref}>
       <input
         ref={inputRef}
         type="text"

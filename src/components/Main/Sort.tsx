@@ -12,17 +12,15 @@ export const sortList = [
 ];
 
 const Sort: FC = () => {
-  const sortRef = useRef<HTMLInputElement | null>(null);
   const sort = useSelector((state: RootState) => state.filter.sort);
   const dispatch = useDispatch();
-  console.log(sort);
 
   const onClickSetSort = (value: object) => {
     dispatch(setSort(value));
   };
 
   return (
-    <Select elections={sortList} value={sort} onClickType={onClickSetSort} ref={sortRef} />
+    <Select elections={sortList} value={sort} onClickType={onClickSetSort} />
   );
 };
 
