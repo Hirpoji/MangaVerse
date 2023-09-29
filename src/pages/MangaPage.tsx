@@ -4,6 +4,7 @@ import Data from "../components/Manga/Data";
 import Genre from "../components/Manga/Genre";
 
 function MangaPage() {
+  
   return (
     <div className="grid gap-y-10 grid-cols-12 mb-20 gap-x-5">
       <Data />

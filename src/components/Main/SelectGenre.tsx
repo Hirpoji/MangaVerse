@@ -7,10 +7,7 @@ const SelectGenre: FC = () => {
     { id: 1, label: "Сенен" },
     { id: 2, label: "Романтика" },
     { id: 3, label: "Комедия" },
-    { id: 4, label: "Фэнтези" },
-    { id: 4, label: "Фэнтези" },
-    { id: 4, label: "Фэнтези" },
-    { id: 4, label: "Фэнтези" },
+
   ];
 
   const [selectedItems, setSelectedItems] = useState<number[]>([]);

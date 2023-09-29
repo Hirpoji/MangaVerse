@@ -11,7 +11,7 @@ const User: FC = () => {
       <div className="flex items-center gap-x-4 justify-end">
         <span className="font-bold text-base">Анатолий</span>
         <img
-          className="rounded-3xl border-2 w-10 h-10 border-black"
+          className="rounded-3xl border-[1px] w-10 h-10 border-black"
           src="../../src/assets/images/user.png"
         />
       </div>

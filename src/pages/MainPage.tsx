@@ -82,7 +82,7 @@ const MainPage: FC = () => {
     <div className="grid gap-y-10 grid-cols-12 mb-20 gap-x-5 ">
       <div className="flex flex-col col-end-9 col-start-1 gap-y-10">
         <Category />
-        <CardList isLoading={isLoading} mangaList={mangaList} />
+        <CardList isLoading={isLoading} mangaList={mangaList} className={"grid-cols-4 col-start-1 col-end-9"} />
       </div>
       <div className=" flex flex-col  col-start-10 col-end-13 gap-y-10">
         <Sort />

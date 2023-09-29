@@ -12,7 +12,7 @@ const initialState: FilterState = {
   categoryName: "Все",
   sort: {
     name: "По рейтингу 10-1",
-    sortProperty: "-rating",
+    sortProperty: "-rating", 
   },
 };
 
